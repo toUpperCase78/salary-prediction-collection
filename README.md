@@ -27,41 +27,63 @@ This repo aims for which studies I've carried out to understand and gain insight
 
 **FEATURES: salary_data_cleaned.csv**
 
-* Job Title (string)
-* Salary Estimate (string)
-* Job Description (string)
-* Rating (float64) ('-1' values were filled with average)
-* Company Name (string)
-* Location (string)
-* Headquarters (string)
-* Size (string)
-* Founded (int64)
-* Type of ownership (string)
-* Industry (string)
-* Sector (string)
-* Revenue (string)
-* Competitors (string)
-* hourly (int64)
-* employer_provided (int64)
-* min_salary (int64) (Converted hourly values)
-* max_salary (int64) (Converted hourly values)
-* avg_salary (float64) (The dependent feature for the ML models)
-* company_txt (string) (Applied data cleaning)
-* job_state (string) (Applied data cleaning)
-* same_state (int64)
-* age (int64) ('-1' values were filled with average)
-* python_yn (int64)
-* R_yn (int64)
-* spark (int64)
-* aws (int64)
-* excel (int64)
+| Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
+|---------|----------------|-----------|-------------|---------------------|
+| Job Title | 742 | string | No | |
+| Salary Estimate | 742 | string | No | |
+| Job Description | 742 | string | No | |
+| Rating | 742 | float64 | Yes | '-1' values were filled with average |
+| Company Name | 742 | string | No | |
+| Location | 742 | string | No | |
+| Headquarters | 742 | string | No | |
+| Size | 742 | string | No | |
+| Founded | 742 |int64 | No | |
+| Type of ownership | 742 | string | No | |
+| Industry | 742 | string | No | |
+| Sector | 742 | string | No | |
+| Revenue | 742 | string | No | |
+| Competitors | 742 | string | No | |
+| hourly | 742 | int64 | Yes | |
+| employer_provided | 742 | int64 | Yes | |
+| min_salary | 742 | int64 | No | Converted hourly values |
+| max_salary | 742 | int64 | No | Converted hourly values |
+| avg_salary | 742 | float64 | Yes | The dependent feature for the ML models |
+| company_txt | 742 | string | No | Applied data cleaning |
+| job_state | 742 | string | Yes | Applied data cleaning |
+| same_state | 742 | int64 | Yes | |
+| age | 742 | int64 | Yes | '-1' values were filled with average |
+| python_yn | 742 | int64 | Yes | |
+| R_yn | 742 | int64 | Yes | |
+| spark | 742 | int64 | Yes | |
+| aws | 742 | int64 | Yes | |
+| excel | 742 | int64 | Yes | |
 
 **ADDITIONAL FEATURES: salary_data_cleaned.csv**
 
-* job_simp (string) (Obtained from 'Job Title'; created dummy variables)
-* seniority (string) (Obtained from 'Job Title'; created dummy variables)
-* desc_len (int64) (Obtained from 'Job Description'; created dummy variables)
-* num_comp (int64) (Obtained from 'Competitors')
+| Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
+|---------|----------------|-----------|-------------|---------------------|
+| job_simp | 742 | string | Yes | Obtained from 'Job Title'; created dummy variables |
+| seniority | 742 | string | Yes | Obtained from 'Job Title'; created dummy variables |
+| desc_len | 742 | int64 | Yes | Obtained from 'Job Description'; created dummy variables |
+| num_comp | 742 | int64 | Yes | Obtained from 'Competitors' |
+
+**RESULTS OF ML MODELS: salary_data_cleaned.csv (80% Train, 20% Test)**
+
+| Model | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 679,94 | 26,08 | 20,77 | 0,5183 | 0,627 | 0,5467 |
+| Lasso | 828,48 | 28,78 | 23,41 | 0,4131 | 0,489 | 0,4334 |
+| Ridge | 1420,27 | 37,69 | 30,1 | -0,0062 | 0,2515 | 0,2467 |
+| Polynomial Lasso | 762,73 | 27,62 | 20,98 | 0,4597 | 0,489 | 0,4334 |
+| Polynomial Ridge | 971,67 | 31,17 | 20,27 | 0,3116 | 0,6252 | 0,5511 |
+| Decision Tree | 1236,39 | 35,12 | 27,3 | 0,1241 | 0,1974 | 0,2366 |
+| Random Forest | 984,39 | 31,37 | 25,35 | 0,3026 | 0,4105 | 0,3394 |
+| KNN Reg | 1245,87 | 35,3 | 28,5 | 0,1174 | 0,2521 | 0,0366 |
+| SVM Reg | 1467,13 | 38,3 | 30,36 | -0,0394 | 0,005 | -0,0185 |
+| MLPR | 1033,53 | 32,15 | 25,96 | 0,2678 | N/A | N/A |
+| Gradient Boosting | 564,06 | 23,75 | 18,27 | 0,6004 | 0,8089 | 0,6129 |
+
+All best values were achieved by **Gradient Boosting**.
 
 ## 02. Trouble404 / kaggle-Job-Salary-Prediction
 
