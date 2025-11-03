@@ -2,11 +2,13 @@
 
 ## Overview
 
-This repo aims for which studies I've carried out to understand and gain insights about how salaries can be predicted against several attributes among datasets from various GitHub repos. Generally, these include the operations below, but the methods applied may differ from each other:
+This repo aims for which studies I've carried out to understand and gain insights about how salaries can be predicted in the best way, against several attributes among datasets from various GitHub repos; also to figure out which machine learning model is the best to deliver reliable salary predictions with regards to measurements.
+
+Generally, these operations are included below, but the methods applied may differ from each other:
 
 * Exploratory Data Analysis (EDA)
 * Data Visualizations
-* Feature Engineering (Preprocessing)
+* Feature Engineering / Preprocessing
 * Predictions with Machine Learning Regression models
 * Comparisons of model results with measurements (MSE, REMSE, MAE, R2, Cross Validation)
 * Explainable AI (XAI)
@@ -15,7 +17,7 @@ This repo aims for which studies I've carried out to understand and gain insight
 
 **LINK:** https://github.com/PlayingNumbers/ds_salary_proj
 
-**FILES:**
+### FILES
 
 * [01_EDA(1)__salary_data_cleaned.ipynb](01_EDA(1)__salary_data_cleaned.ipynb) (Exploratory Data Analysis on salary_data_cleaned.csv file) (599 KB)
 * [01_EDA(2)__glassdoor_job.ipynb](01_EDA(2)__glassdoor_job.ipynb) (Exploratory Data Analysis on glassdoor_jobs.csv file) (35 KB)
@@ -25,7 +27,7 @@ This repo aims for which studies I've carried out to understand and gain insight
 * [01_glassdoor_data.csv](01_glassdoor_data.csv) (Salary dataset for Glassdoor jobs) (956 rows) (3784 KB)
 * [01_salary_data_cleaned.csv](01_salary_data_cleaned.csv) (Salary dataset as cleaned) (742 rows) (3060 KB)
 
-**FEATURES: salary_data_cleaned.csv**
+### FEATURES: salary_data_cleaned.csv
 
 | Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
 |---------|----------------|-----------|-------------|---------------------|
@@ -58,7 +60,7 @@ This repo aims for which studies I've carried out to understand and gain insight
 | aws | 742 | int64 | Yes | |
 | excel | 742 | int64 | Yes | |
 
-**ADDITIONAL FEATURES: salary_data_cleaned.csv**
+### ADDITIONAL FEATURES: salary_data_cleaned.csv
 
 | Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
 |---------|----------------|-----------|-------------|---------------------|
@@ -67,7 +69,7 @@ This repo aims for which studies I've carried out to understand and gain insight
 | desc_len | 742 | int64 | Yes | Obtained from 'Job Description'; created dummy variables |
 | num_comp | 742 | int64 | Yes | Obtained from 'Competitors' |
 
-**RESULTS OF ML MODELS: salary_data_cleaned.csv (80% Train, 20% Test)**
+### RESULTS OF ML MODELS: salary_data_cleaned.csv (80% Train, 20% Test)
 
 | Model | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
 |-------|-----|------|-----|----------|-----------------|----------------|
@@ -87,7 +89,60 @@ All best values were achieved by **Gradient Boosting**.
 
 ## 02. Trouble404 / kaggle-Job-Salary-Prediction
 
-LINK: https://github.com/Trouble404/kaggle-Job-Salary-Prediction
+**LINK:** https://github.com/Trouble404/kaggle-Job-Salary-Prediction
+
+### FILES
+
+* [02_EDA(1)__Train_rev1.ipynb](02_EDA(1)__Train_rev1.ipynb) (Exploratory Data Analysis on Train_rev1.csv file) (177 KB)
+* [02_EDA(2)__Test_rev1.ipynb](02_EDA(2)__Test_rev1.ipynb) (Exploratory Data Analysis on Test_rev1.csv file) (24 KB)
+* [02_Location_Tree.csvc](02_Location_Tree.csv) (The single-column dataset with location tree values) (31762 rows) (1665 KB)
+* [02_Regression__Train_rev1.ipynb](02_Regression__Train_rev1.ipynb) (Predictions with ML Regression models on Train_rev1.csv file) (473 KB)
+* [02_mean_benchmark.csv](02_mean_benchmark.csv) (The two-column dataset with id and normalized salary values) (40663 rows) (1152 KB)
+* [02_random_forest_benchmark_test_rev1.csv](02_random_forest_benchmark_test_rev1.csv) (Another two-column dataset with id and normalized salary values) (122463 rows) (3455 KB)
+* [02_test.csv](02_test.csv) (Another single-column dataset with id values) (122463 rows) (1196 KB)
+
+**Train_rev1.csv** and **Test_rev1.csv** files are not included due to being too large (420 MB & 205 MB).
+
+### FEATURES: Train_rev1.csv
+
+| Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
+|---------|----------------|-----------|-------------|---------------------|
+| Id | 244471 | int64 | No | |
+| Title | 244470 | string | No | |
+| FullDescription | 244471 | string | No | |
+| LocationRaw | 244471 | string | No | |
+| LocationNormalized | 244471 | string | No | |
+| ContractType | 65387 | string | No | | 
+| ContractTime | 180628 | string | No | |
+| Company | 212144 | string | No | |
+| Category | 244471 | string | No | |
+| SalaryRaw | 244471 | string | No | |
+| SalaryNormalized | 244471 | string | Yes | The dependent feature for the ML models|
+| SourceName | 244471 | string | No | |
+
+### ADDITIONAL FEATURES: Train_rev1.csv
+
+| Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
+|---------|----------------|-----------|-------------|---------------------|
+| TitleSimp | 244471 | string | Yes | Obtained from 'Title'; created dummy variables |
+| CategorySimp | 244471 | string | Yes | Obtained from 'Category'; created dummy variables |
+| ContractTypeEdit | 244471 | string | Yes | Obtained from 'ContractType'; created dummy variables |
+| ContractTimeEdit | 244471 | string | Yes | Obtained from 'ContractTime'; created dummy variables |
+| DescLength | 244471 | string | Yes | Obtained from 'FullDescription' |
+
+### RESULTS OF ML MODELS: Train_rev1.csv (80% Train, 20% Test)
+
+| Model | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 242245662,7 | 15564,24 | 11526,77 | 0,1817 | 0,1823 | 0,1761 |
+| Lasso | 242239920,0 | 15564,06 | 11526,63 | 0,1817 | 0,1823 | 0,1761 |
+| Ridge | 263636399,3 | 16236,88 | 12204,92 | 0,1094 | 0,1073 | 0,1027 |
+| Polynomial Lasso | 221676092,9 | 14888,79 | 10880,99 | 0,2512 | 0,1823 | 0,1761 |
+| Polynomial Ridge | 221638542,2 | 14887,53 | 10874,37 | 0,2513 | 0,1823 | 0,1761 |
+| Random Forest | 266177079,3 | 16314,93 | 12238,75 | 0,1009 | 0,0970 | 0,0924 |
+| MLPR | 242795656,5 | 15581,9 | 11627,24 | 0,1798 | N/A | N/A |
+
+All best values were achieved by **Polynomial Ridge**.
 
 ## 03. rajpurohitpooja / Salary_Prediction_Portfolio
 
