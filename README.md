@@ -146,7 +146,23 @@ All best values were achieved by **Polynomial Ridge**.
 
 ## 03. rajpurohitpooja / Salary_Prediction_Portfolio
 
-LINK: https://github.com/rajpurohitpooja/Salary_Prediction_Portfolio
+**LINK:** https://github.com/rajpurohitpooja/Salary_Prediction_Portfolio
+
+### FILES
+
+* [03_EDA(1)__train_features_salaries.ipynb](03_EDA(1)__train_features_salaries.ipynb) (Exploratory Data Analysis on train_features.csv & train_salaries.csv merged together) (715 KB)
+* [03_EDA(2)__test_features.ipynb](03_EDA(2)__test_features.ipynb) (Exploratory Data Analysis on test_features.csv file) (14 KB)
+* [03_Regression(T1)__train_features_salaries.ipynb](03_Regression(T1)__train_features_salaries.ipynb) (Predictions with ML Regression models on train_features.csv & train_salaries.csv merged together by using Type-1 feature set) (490 KB)
+* [03_Regression(T2)__train_features_salaries.ipynb](03_Regression(T2)__train_features_salaries.ipynb) (Predictions with ML Regression models on train_features.csv & train_salaries.csv merged together by using Type-2 feature set) (476 KB)
+* [03_Regression(T3)__train_features_salaries.ipynb](03_Regression(T3)__train_features_salaries.ipynb) (Predictions with ML Regression models on train_features.csv & train_salaries.csv merged together by using Type-3 feature set) (467 KB)
+* [04_Regression(T4)__train_features_salaries.ipynb](03_Regression(T4)__train_features_salaries.ipynb) (Predictions with ML Regression models on train_features.csv & train_salaries.csv merged together by using Type-4 feature set) (469 KB)
+* [03_XAI_Gradient_Boosting_Classification(T1)__train_features_salaries.ipynb](03_XAI_Gradient_Boosting_Classification(T1)__train_features_salaries.ipynb) (Explaining Gradient Boosting Classification model with SHAP & LIME) (2089 KB)
+* [03_XAI_Gradient_Boosting_Reg(T1)__train_features_salaries.ipynb](03_XAI_Gradient_Boosting_Reg(T1)__train_features_salaries.ipynb) (Explaining Gradient Boosting Regression model with SHAP & LIME) (3193 KB)
+* [03_XAI_Linear_Regression(T1)__train_features_salaries.ipynb](03_XAI_Linear_Regression(T1)__train_features_salaries.ipynb) (Explaining Linear Regression model with SHAP & LIME) (4131 KB)
+* [03_XAI_Logistic_Regression(T1)__train_features_salaries.ipynb](03_XAI_Logistic_Regression(T1)__train_features_salaries.ipynb) (Explaining Logistic Regression model with SHAP & LIME) (2020 KB)
+* [03_XAI_Random_Forest_Regression(T1)__train_features_salaries.ipynb](03_XAI_Random_Forest_Regression(T1)__train_features_salaries.ipynb) (Explaining Random Forest Regression model with SHAP & LIME) (2088 KB)
+* [03_XAI_XGBoost_Classification(T1)__train_features_salaries.ipynb](03_XAI_XGBoost_Classification(T1)__train_features_salaries.ipynb) (Explaining XGBoost Classification model with SHAP & LIME) (2019 KB)
+* [03_XAI_XGBoost_Regression(T1)__train_features_salaries.ipynb](03_XAI_XGBoost_Regression(T1)__train_features_salaries.ipynb) (Explaining XGBoost Regression model with SHAP & LIME) (3245 KB)
 
 ## 04. disha2disha / Employee-Salary-Prediction
 
