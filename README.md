@@ -2,7 +2,9 @@
 
 ## Overview
 
-This repo aims for which studies I've carried out to understand and gain insights about how salaries can be predicted in the best way, against several attributes among datasets from various GitHub repos; also to figure out which machine learning model is the best to deliver reliable salary predictions with regards to measurements.
+This repo aims for which studies I've carried out to understand and gain insights about how salaries can be predicted in the best way, against several attributes among datasets from various GitHub repos; also to figure out which machine learning model is the best to deliver reliable salary predictions with regards to metrics.
+
+All these studies have been presented in **Jupyter Notebook** files, featuring info about the datasets, preprocessing steps, feature selections, machine learning models used for predictions and results of all metrics in bar graphs.
 
 Generally, these operations are included below, but the methods applied may differ from each other:
 
@@ -10,7 +12,7 @@ Generally, these operations are included below, but the methods applied may diff
 * Data Visualizations
 * Feature Engineering / Preprocessing
 * Predictions with Machine Learning Regression models
-* Comparisons of model results with measurements (MSE, REMSE, MAE, R2, Cross Validation)
+* Comparisons of model results with metrics (MSE, REMSE, MAE, R2, Cross Validation)
 * Explainable AI (XAI)
 
 ## 01. PlayingNumbers / ds_salary_proj
@@ -60,7 +62,7 @@ Generally, these operations are included below, but the methods applied may diff
 | aws | 742 | int64 | Yes | |
 | excel | 742 | int64 | Yes | |
 
-### ADDITIONAL FEATURES: salary_data_cleaned.csv
+### ADDITIONAL FEATURES: salary_data_cleaned.csv (742 rows)
 
 | Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
 |---------|----------------|-----------|-------------|---------------------|
@@ -103,7 +105,7 @@ All best values were achieved by **Gradient Boosting**.
 
 **Train_rev1.csv** and **Test_rev1.csv** files are not included due to being too large (420 MB & 205 MB).
 
-### FEATURES: Train_rev1.csv
+### FEATURES: Train_rev1.csv (244471 rows)
 
 | Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
 |---------|----------------|-----------|-------------|---------------------|
@@ -163,6 +165,42 @@ All best values were achieved by **Polynomial Ridge**.
 * [03_XAI_Random_Forest_Regression(T1)__train_features_salaries.ipynb](03_XAI_Random_Forest_Regression(T1)__train_features_salaries.ipynb) (Explaining Random Forest Regression model with SHAP & LIME) (2088 KB)
 * [03_XAI_XGBoost_Classification(T1)__train_features_salaries.ipynb](03_XAI_XGBoost_Classification(T1)__train_features_salaries.ipynb) (Explaining XGBoost Classification model with SHAP & LIME) (2019 KB)
 * [03_XAI_XGBoost_Regression(T1)__train_features_salaries.ipynb](03_XAI_XGBoost_Regression(T1)__train_features_salaries.ipynb) (Explaining XGBoost Regression model with SHAP & LIME) (3245 KB)
+
+### FEATURES: train_features.csv (1000000 rows) & train_salaries.csv (1000000 rows)
+
+| Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
+|---------|----------------|-----------|-------------|---------------------|
+| jobId | 1000000 | string | No | |
+| companyId | 1000000 | string | No | |
+| jobType | 1000000 | string | Yes | Created dummy variables |
+| degree | 1000000 | string | Yes | Created dummy variables |
+| major | 1000000 | string | Yes | Created dummy variables |
+| industry | 1000000 | string | Yes | Created dummy variables |
+| yearsExperience | 1000000 | int64 | Yes | |
+| milesFromMetropolis | 1000000 | int64 | Yes | |
+| salary | 1000000 | int64 | Yes | The dependent features for the ML models |
+
+### FEATURE SET TYPES & CORRELATIONS
+
+As seen from the file names above, there are 4 types of features set used to examine the effects the salary predictions when used with ML models.
+
+* **Type 1:** Use All Features
+* **Type 2:** Use Positively Correlated Features Only
+* **Type 3:** Use Top 10 Positively Correlated Features Only
+* **Type 4:** Use Most Negatively & Most Positively Correlated Features Only
+
+| Column | Correlation | TYPE 1 | TYPE 2 | TYPE 3 | TYPE 4 |
+|--------|-------------|--------|--------|--------|--------|
+| job_CEO | 0,285245 | Yes | Yes | Yes | Yes |
+| job_CFO | 0,188804 | Yes | Yes | Yes | Yes |
+| job_CTO | 0,189600 | Yes | Yes | Yes | Yes |
+| job_JANITOR | -0,441660 | Yes | No | No | Yes |
+| job_JUNIOR | -0,201993 | Yes | No | No | No |
+| job_MANAGER | -0,006781 | Yes | No | No | No |
+| job_SENIOR | -0,103642 | Yes | No | No | No |
+| job_VICE_PRESIDENT | 0,090941 | Yes | Yes | No | No |
+
+### RESULTS OF ML MODELS
 
 ## 04. disha2disha / Employee-Salary-Prediction
 
