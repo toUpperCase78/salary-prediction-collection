@@ -165,6 +165,8 @@ All best values were achieved by **Polynomial Ridge**.
 * [03_XAI_Random_Forest_Regression(T1)__train_features_salaries.ipynb](03_XAI_Random_Forest_Regression(T1)__train_features_salaries.ipynb) (Explaining Random Forest Regression model with SHAP & LIME) (2088 KB)
 * [03_XAI_XGBoost_Classification(T1)__train_features_salaries.ipynb](03_XAI_XGBoost_Classification(T1)__train_features_salaries.ipynb) (Explaining XGBoost Classification model with SHAP & LIME) (2019 KB)
 * [03_XAI_XGBoost_Regression(T1)__train_features_salaries.ipynb](03_XAI_XGBoost_Regression(T1)__train_features_salaries.ipynb) (Explaining XGBoost Regression model with SHAP & LIME) (3245 KB)
+ 
+**train_features.csv**, **train_salaries.csv** and **test_features.csv** files are not included due to being too large (56,8 MB, 20,6 MB & 56,8 MB).
 
 ### FEATURES: train_features.csv (1000000 rows) & train_salaries.csv (1000000 rows)
 
@@ -178,7 +180,7 @@ All best values were achieved by **Polynomial Ridge**.
 | industry | 1000000 | string | Yes | Created dummy variables |
 | yearsExperience | 1000000 | int64 | Yes | |
 | milesFromMetropolis | 1000000 | int64 | Yes | |
-| salary | 1000000 | int64 | Yes | The dependent features for the ML models |
+| salary | 1000000 | int64 | Yes | The dependent feature for the ML models |
 
 ### FEATURE SET TYPES & CORRELATIONS
 
@@ -253,17 +255,122 @@ As seen from the file names above, there are 4 types of features set used to exa
 
 ### RESULTS OF ML MODELS (TYPE 3): train_features.csv & train_salaries.csv (80% Train, 20% Test)
 
+| Model | Fit & Pred Time (sec) | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----------------------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 0,372 | 741,672 | 27,234 | 21,928 | 0,5073 | 0,5052 | 0,5051 |
+| Lasso | 0,241 | 836,352 | 28,920 | 23,234 | 0,4444 | 0,4439 | 0,4439 |
+| Ridge | 0,118 | 741,672 | 27,234 | 21,928 | 0,5073 | 0,5052 | 0,5051 |
+| Polynomial Lasso | 6,461 | 888,294 | 29,804 | 24,017 | 0,4099 | 0,4439 | 0,4439 |
+| Polynomial Ridge | 0,572 | 727,061 | 26,964 | 21,726 | 0,5170 | 0,5052 | 0,5051 |
+| Random Forest | 7,525 | 1296,987 | 36,014 | 28,958 | 0,1384 | 0,1392 | 0,1392 |
+| Gradient Boosting | 37,452 | 733,024 | 27,074 | 21,819 | 0,5131 | 0,5110 | 0,5108 |
+| XGBoost | 3,452 | 727,628 | 26,975 | 21,735 | 0,5166 | 0,5161 | 0,5142 |
+
 ### RESULTS OF ML MODELS (TYPE 4): train_features.csv & train_salaries.csv (80% Train, 20% Test)
+
+| Model | Fit & Pred Time (sec) | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----------------------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 0,41 | 587,751 | 24,244 | 19,435 | 0,6096 | 0,6083 | 0,6083 |
+| Lasso | 0,359 | 638,587 | 25,270 | 20,297 | 0,5758 | 0,5755 | 0,5755 |
+| Ridge | 0,123 | 587,751 | 24,244 | 19,435 | 0,6096 | 0,6083 | 0,6083 |
+| Polynomial Lasso | 7,923 | 650,997 | 25,515 | 20,518 | 0,5676 | 0,5755 | 0,5755 |
+| Polynomial Ridge | 0,608 | 570,462 | 23,884 | 19,145 | 0,6210 | 0,6083 | 0,6083 |
+| Random Forest | 10,940 | 895,186 | 29,920 | 24,024 | 0,4053 | 0,4080 | 0,4077 |
+| Gradient Boosting | 48,533 | 572,802 | 23,933 | 19,191 | 0,6195 | 0,6191 | 0,6187 |
+| XGBoost | 3,434 | 572,475 | 23,926 | 19,173 | 0,6197 | 0,6223 | 0,6187 |
 
 In all these results, **Ridge** had the fastest training (fit) and prediction time; **Polynomial Ridge** acheived to have the best MSE, RMSE, MAE and R2 Score and **XGBoost** achieved to obtain the highest CV score.
 
 ## 04. disha2disha / Employee-Salary-Prediction
 
-LINK: https://github.com/disha2sinha/Employee-Salary-Prediction
+**LINK:** https://github.com/disha2sinha/Employee-Salary-Prediction
+
+### FILES
+
+* [04_EDA(1)__empsalupdated.ipynb](04_EDA(1)__empsalupdated.ipynb) (Exploratory Data Analysis on empsalupdated.csv) (164 KB)
+* [04_Empsal.xlsx](04_Empsal.xlsx) (Initial Empsal dataset stored as Excel file) (7 KB)
+* [04_Regression__empsalupdated.ipynb](04_Regression__empsalupdated.ipynb) (Predictions with ML Regression models on empsalupdated.csv file) (541 KB)
+* [04_empsal.csv](04_empsal.csv) (Initial Empsal dataset stored as CSV file) (2 KB)
+* [04_empsalupdated.csv](04_empsalupdated.csv) (Updated Empsal dataset stored as CSV file) (3 KB)
+
+### FEATURES: empsalupdated.csv (26 rows)
+
+| Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
+|---------|----------------|-----------|-------------|---------------------|
+| empno | 26 | int64 | No | |
+| empname | 26 | string | No | |
+| dob | 26 | sttring | No | |
+| sex | 26 | string | Yes | Created dummy variables |
+| city | 26 | string | Yes | Created dummy variables |
+| state | 26 | string | Yes | Created dummy variables |
+| expyr | 26 | string | Yes | |
+| salary | 26 | int64 | Yes | The dependent feature for the ML models |
+| hra | 26 | int64 | No | |
+| Age | 26 | int64 | Yes | |
+| conv | 26 | float64 | No | |
+| total | 26 | float64 | No | |
+
+### RESULTS OF ML MODELS: empsalupdated.csv (80% Train, 20% Test)
+
+| Model | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 70359116,26 | 8398,76 | 6409,148 | 0,8343 | 0,9895 | 0,6974 |
+| Lasso | 68898977,96 | 8300,54 | 6306,497 | 0,8382 | 0,9895 | 0,6725 |
+| Ridge | 25779238,17 | 5077,33 | 4486,409 | 0,9395 | 0,9851 | 0,8723 |
+| Polynomial Lasso | 64234377,88 | 8014,64 | 5993,268 | 0,8491 | 0,9895 | 0,6725 |
+| Polynomial Ridge | 182450195,10 | 13507,41 | 12964,645 | 0,5715 | 0,9851 | 0,8723 |
+| Random Forest | 64942483,11 | 8058,69 | 6218,85 | 0,8475 | 0,9828 | 0,8253 |
+| Quantile | 74279271,93 | 8618,54 | 6406,955 | 0,8256 | 0,9774 | 0,5880 |
+| KNN Reg | 323822325,80 | 17995,06 | 15431,40 | 0,2395 | 0,7324 | 0,3702 |
+| Gradient Boosting | 28300031,56 | 5319,78 | 3756,159 | 0,9335 | 1,0000 | 0,8763 |
+| XGBoost | 116914661,80 | 10812,71 | 7118,133 | 0,7254 | 1,0000 | 0,7353 |
+
+Here, **Ridge** model had the best MSE, RMSE and R2 Score values; together with that, **Gradient Boosting** had the best MAE and CV score values.
 
 ## 05. DheerajKumar97 / Employee-Salary-Prediction----python--ML
 
-LINK: https://github.com/DheerajKumar97/Employee-Salary-Prediction----python--ML
+**LINK:** https://github.com/DheerajKumar97/Employee-Salary-Prediction----python--ML
+
+### FILES
+
+* [05_EDA(1)__train.ipynb](05_EDA(1)__train.ipynb) (Exploratory Data Analysis on train.csv file) (645 KB)
+* [05_EDA(2)__test.ipynb](05_EDA(2)__test.ipynb) (Exploratory Data Analysis on test.csv file) (25 KB)
+* [05_Regression(T1)__Employee_Salary_Prediction.ipynb](05_Regression(T1)__Employee_Salary_Prediction.ipynb) (Predictions with ML Regression models on train.csv file by using Type-1 feature set) (438 KB)
+* [05_Regression(T2)__Employee_Salary_Prediction.ipynb](05_Regression(T2)__Employee_Salary_Prediction.ipynb) (Predictions with ML Regression models on train.csv file by using Type-2 feature set) (523 KB)
+* [05_Regression(T3)__Employee_Salary_Prediction.ipynb](05_Regression(T3)__Employee_Salary_Prediction.ipynb) (Predictions with ML Regression models on train.csv file by using Type-3 feature set) (516 KB)
+* [05_XAI_Gradient_Boosting(T1)__train.ipynb](05_XAI_Gradient_Boosting(T1)__train.ipynb) (Explaining Gradient Boosting Regression model with SHAP & LIME) (5283 KB)
+* [05_XAI_Linear_Regression(T1)__train.ipynb](05_XAI_Linear_Regression(T1)__train.ipynb) (Explaining Linear Regression model with SHAP & LIME) (3936 KB)
+* [05_XAI_XGBoost(T1)__train.ipynb](05_XAI_XGBoost(T1)__train.ipynb) (Explaining XGBoost Regression model with SHAP & LIME) (5508 KB)
+
+**train.csv** and **test.csv** files are not included due to being too large (24,3 MB & 9,15 MB).
+
+### FEATURES: train.csv (550068 rows)
+
+| Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
+|---------|----------------|-----------|-------------|---------------------|
+| User_ID | 550068 | int64 | No | |
+| Product_ID | 550068 | string | No | |
+| Gender | 550068 | string | Yes | Created dummy variables |
+| Age | 550068 | string | Yes | Changed data into more meaningful one; created dummy variables |
+| Occupation | 550068 | int64 | Yes | Created dummy variables |
+| City_Category | 550068 | string | Yes | Changed data into more meaningful one; created dummy variables |
+| Stay_In_Current_City_Years | 550068 | string | Yes | Created dummy variables |
+| Marital_Status | 550068 | int64 | Yes | |
+| Product_Category_1 | 550068 | int64 | Yes | Created dummy variables |
+| Product_Category_2 | 376430 | float64 | No | |
+| Product_Category_3 | 166821 | float64 | No | |
+| Purchase | 550068 | int64 | Yes | The dependent feature for the ML models |
+
+### FEATURE SET TYPES & CORRELATIONS
+
+As seen from the file names above, there are 3 types of features set used to examine the effects the salary predictions when used with ML models.
+
+* **Type 1:** Use all features
+* **Type 2:** Use positively created features only
+* **Type 3:** Use most negatively and most positively correlated features only (>= 0.1 or <= -0.1)
+
+| Column | Correlation | TYPE 1 | TYPE 2 | TYPE 3 |
+|--------|-------------|--------|--------|--------|
 
 ## 06. jhanvi1831 / Software-Engineer-Salary-Prediction
 
