@@ -476,12 +476,91 @@ In all types of feature sets, **XGBoost** is the best model across all metrics (
 
 ## 06. jhanvi1831 / Software-Engineer-Salary-Prediction
 
-LINK: https://github.com/jhanvi831/Software-Engineer-Salary-Prediction
+**LINK:** https://github.com/jhanvi831/Software-Engineer-Salary-Prediction
+
+### FILES
+
+* [06_EDA(1)__survey_results_public.ipynb](06_EDA(1)__survey_results_public.ipynb) (Exploratory Data Analysis on survey_results_public.csv file) (101 KB)
+* [06_Regression(1)__survey_results_public.ipynb](06_Regression(1)__survey_results_public.ipynb) (Predictions with ML Regression models on survey_results_public.csv file (Series 1)) (643 KB)
+* [06_Regression(2-T1)__survey_results_public.ipynb](06_Regression(2-T1)__survey_results_public.ipynb) (Predictions with ML Regression models on survey_results_public.csv file (Series 2) by using Type-1 feature set) (642 KB)
+* [06_Regression(2-T2)__survey_results_public.ipynb](06_Regression(2-T2)__survey_results_public.ipynb) (Predictions with ML Regression models on survey_results_public.csv file (Series 2) by using Type-2 feature set) (633 KB)
+* [06_Regression(2-T3)__survey_results_public.ipynb](06_Regression(2-T3)__survey_results_public.ipynb) (Predictions with ML Regression models on survey_results_public.csv file (Series 2) by using Type-3 feature set) (632 KB)
+* [06_Regression(2-T4)__survey_results_public.ipynb](06_Regression(2-T4)__survey_results_public.ipynb) (Predictions with ML Regression models on survey_results_oublic.csv file (Series 2) by using Type-4 feature set) (634 KB)
+* [06_XAI_Gradient_Boosting__survey_results_public.ipynb](06_XAI_Gradient_Boosting__survey_results_public.ipynb) (Explaining Gradient Boosting Regression model with SHAP & LIME) (3651 KB)
+* [06_XAI_Linear_Regression__survey_results_public.ipynb](06_XAI_Linear_Regression__survey_results_public.ipynb) (Explaining Linear Regression model with SHAP & LIME) (3683 KB)
+* [06_XAI_Random_Forest__survey_results_public.ipynb](06_XAI_Random_Forest__survey_results_public.ipynb) (Explaining Random Forest Regression model with SHAP & LIME) (3711 KB)
+
+**survey_results_public.csv** file is not included due to being too large (77,4 MB).
+
+### FEATURES: survey_results_public.csv (83439 rows)
+
+| Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
+|---------|----------------|-----------|-------------|---------------------|
+| ResponseId | 83439 | int64 | No | |
+| MainBranch | 83439 | string | No | |
+| Employment | 83323 | string | No | Values of "Employed Full-time" are selected only |
+| Country | 83439 | string | Yes | Counts >= 400 are kept individually, otherwise marked as "Other"; Applied label encoding (Series 1); Created dummy variables (Series 2) |
+| US_State | 14920 | string | No | |
+| UK_Country | 4418 | string | No | |
+| EdLevel | 83126 | string | Yes | Rows with null values are removed; Simplified values; Applied label encoding (Series 1); Created dummy variables (Series 2) |
+| Age1stCode | 83243 | string | No | |
+| LearnCode | 82963 | string | No | |
+| YearsCode | 81641 | string | No | |
+| YearsCodePro | 61216 | string | Yes | Rows with null values are removed; Processed and converted to integer |
+| DevType | 66484 | string | No | |
+| OrgSize | 60726 | string | No | |
+| Currency | 61080 | string | No | |
+| CompTotal | 47183 | float64 | No | |
+| CompFreq | 52150 | string | No | |
+| LanguageHaveWorkedWith | 82357 | string | No |
+| LanguageWantToWorkWith | 76821 | string | No |
+| DatabaseHaveWorkedWith | 69546 | string | No |
+| DatabaseWantToWorkWith | 58299 | string | No |
+| PlatformHaveWorkedWith | 52135 | string | No |
+| PlatformWantToWorkWith | 41619 | string | No |
+| WebframeHaveWorkedWith | 61707 | string | No |
+| WebframeWantToWorkWith | 52095 | string | No |
+| MiscTechHaveWorkedWith | 47055 | string | No |
+| MiscTechWantToWorkWith | 38021 | string | No |
+| ToolsTechHaveWorkedWith | 72537 | string | No |
+| ToolsTechWantToWorkWith | 65480 | string | No |
+| NEWCollabToolsHaveWorkedWith | 81234 | string | No |
+| NEWCollabToolsWantToWorkWith | 73022 | string | No |
+| OpSys | 83294 | string | No |
+| NEWStuck | 83052 | string | No |
+| NEWSOSites | 83171 | string | No |
+| SOVisitFreq | 82413 | string | No |
+| SOAccount | 82525 | string | No |
+| SOPartFreq | 67553 | string | No |
+| SOComm | 82319 | string | No |
+| NEWOtherComms | 82828 | string | No |
+| Age | 82407 | string | No |
+| Gender | 82286 | string | No |
+| Trans | 80678 | string | No |
+| Sexuality | 73366 | string | No |
+| Ethnicity | 79464 | string | No |
+| Accessibility | 77603 | string | No |
+| MentalHealth | 76920 | string | No |
+| SurveyLength | 81711 | string | No |
+| SurveyEase | 81948 | string | No |
+| ConvertedCompYearly | 46844 | float64 | Yes | The dependent feature for the ML Models; Renamed to 'Salary'; Rows with null values are removed; Values within 10000-200000 are selected; Removed those from 'Other' countries |
+
+### FEATURE SET TYPES & CORRELATIONS (SERIES 2)
+
+As seen from the file names above, there are 4 types of features set used in **Series 2** to examine the effects the salary predictions when used with ML models.
+
+* **Type 1:** Use all features
+* **Type 2:** Use positively correlated features only
+* **Type 3:** Use most negatively and most positively correlated features only (>= 0.1 & <= -0.1)
+* **Type 4:** Use negatively correlated features only
+
+| Column | Correlation | TYPE 1 | TYPE 2 | TYPE 3 | TYPE 4 |
+|--------|-------------|--------|--------|--------|--------|
 
 ## 07. bonniema / salary-predictor
 
-LINK: https://github.com/bonniema/salary-predictor/tree/master
+**LINK:** https://github.com/bonniema/salary-predictor/tree/master
 
 ## 08. Pranjali1049 / Salary_Prediction
 
-LINK: https://github.com/Pranjali1049/Salary_Prediction/tree/main
+**LINK:** https://github.com/Pranjali1049/Salary_Prediction/tree/main
