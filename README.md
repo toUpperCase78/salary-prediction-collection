@@ -12,7 +12,7 @@ Generally, these operations are included below, but the methods applied may diff
 * Data Visualizations
 * Feature Engineering / Preprocessing
 * Predictions with Machine Learning Regression models
-* Comparisons of model results with metrics (MSE, REMSE, MAE, R2, Cross Validation)
+* Comparisons of model results with metrics (MSE, RMSE, MAE, R2, Cross Validation)
 * Explainable AI (XAI)
 
 ## 01. PlayingNumbers / ds_salary_proj
@@ -199,8 +199,63 @@ As seen from the file names above, there are 4 types of features set used to exa
 | job_MANAGER | -0,006781 | Yes | No | No | No |
 | job_SENIOR | -0,103642 | Yes | No | No | No |
 | job_VICE_PRESIDENT | 0,090941 | Yes | Yes | No | No |
+| deg_BACHELORS | 0,111923 | Yes | Yes | No | No |
+| deg_DOCTORAL | 0,231391 | Yes | Yes | Yes | Yes |
+| deg_HIGH_SCHOOL | -0,203543 | Yes | No | No | Yes |
+| deg_MASTERS | 0,171992 | Yes | Yes | Yes | No |
+| deg_NONE | -0,257349 | Yes | No | No | Yes |
+| maj_BIOLOGY | 0,076341 | Yes | Yes | No | No |
+| maj_BUSINESS | 0,126124 | Yes | Yes | Yes | No |
+| maj_CHEMISTRY | 0,084046 | Yes | Yes | No | No |
+| maj_COMPSCI | 0,102987 | Yes | Yes | No | No |
+| maj_ENGINEERING | 0,144176 | Yes | Yes | Yes | No |
+| maj_LITERATURE | 0,053920 | Yes | Yes | No | No |
+| maj_MATH | 0,110401 | Yes | Yes | No | No |
+| maj_NONE | -0,371421 | Yes | No | No | Yes |
+| maj_PHYSICS | 0,092057 | Yes | Yes | No | No |
+| ind_AUTO | -0,069913 | Yes | No | No | No |
+| ind_EDUCATION | -0,175148 | Yes | No | No | No |
+| ind_FINANCE | 0,154847 | Yes | Yes | Yes | No |
+| ind_HEALTH | -0,003439 | Yes | No | No | No |
+| ind_OIL | 0,156959 | Yes | Yes | Yes | No |
+| ind_SERIVCE | -0,122361 | Yes | No | No | No |
+| ind_WEB | 0,058949 | Yes | Yes | No | No |
+| yearsExperience | 0,375013 | Yes | Yes | Yes | Yes |
+| milesFromMetropolis | -0,297666 | Yes | No | No | Yes |
 
-### RESULTS OF ML MODELS
+**Note:** For all these results below, Random Forest's parameters were heavily tuned to reduce its fitting time reasonably, however the model performed worse than expected!
+
+### RESULTS OF ML MODELS (TYPE 1): train_features.csv & train_salaries.csv (80% Train, 20% Test)
+
+| Model | Fit & Pred Time (sec) | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----------------------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 1,760 | 385,208 | 19,627 | 15,855 | 0,7441 | 0,7435 | 0,7435 |
+| Lasso | 1,258 | 498,63 | 22,33 | 17,935 | 0,6688 | 0,6687 | 0,6687 |
+| Ridge | 0,452 | 385,207 | 19,627 | 15,855 | 0,7441 | 0,7435 | 0,7435 |
+| Polynomial Lasso | 134,969 | 478,971 | 21,885 | 17,637 | 0,6818 | 0,6687 | 0,6687 |
+| Polynomial Ridge | 9,511 | 354,743 | 18,835 | 15,313 | 0,7643 | 0,7435 | 0,7435 |
+| Random Forest | 23,013 | 898,4 | 29,973 | 24,062 | 0,4032 | 0,4061 | 0,4058 |
+| Gradient Boosting | 101,026 | 376,869 | 19,413 | 15,697 | 0,7497 | 0,7499 | 0,7495 |
+| XGBoost | 5,032 | 358,34 | 18,935 | 15,378 | 0,7618 | 0,7649 | 0,7608 |
+
+### RESULTS OF ML MODELS (TYPE 2): train_features.csv & train_salaries.csv (80% Train, 20% Test)
+
+| Model | Fit & Pred Time (sec) | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----------------------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 0,719 | 607,353 | 24,645 | 19,825 | 0,5965 | 0,5959 | 0,5959 |
+| Lasso | 0,498 | 745,128 | 27,297 | 21,924 | 0,5050 | 0,5050 | 0,5050 |
+| Ridge | 0,216 | 607,353 | 24,645 | 19,824 | 0,5965 | 0,5959 | 0,5959 |
+| Polynomial Lasso | 11,854 | 790,335 | 28,113 | 22,669 | 0,4749 | 0,5050 | 0,5050 |
+| Polynomial Ridge | 1,801 | 592,404 | 24,339 | 19,599 | 0,6064 | 0,5959 | 0,5959 |
+| Random Forest | 10,241 | 1297,232 | 36,017 | 28,959 | 0,1383 | 0,1392 | 0,1392 |
+| Gradient Boosting | 54,024 | 609,923 | 24,696 | 19,914 | 0,5948 | 0,5942 | 0,5942 |
+| XGBoost | 4,100 | 594,158 | 24,375 | 19,624 | 0,6053 | 0,6073 | 0,6041 |
+
+### RESULTS OF ML MODELS (TYPE 3): train_features.csv & train_salaries.csv (80% Train, 20% Test)
+
+### RESULTS OF ML MODELS (TYPE 4): train_features.csv & train_salaries.csv (80% Train, 20% Test)
+
+In all these results, **Ridge** had the fastest training (fit) and prediction time; **Polynomial Ridge** acheived to have the best MSE, RMSE, MAE and R2 Score and **XGBoost** achieved to obtain the highest CV score.
 
 ## 04. disha2disha / Employee-Salary-Prediction
 
