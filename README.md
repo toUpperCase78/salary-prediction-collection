@@ -371,6 +371,108 @@ As seen from the file names above, there are 3 types of features set used to exa
 
 | Column | Correlation | TYPE 1 | TYPE 2 | TYPE 3 |
 |--------|-------------|--------|--------|--------|
+| gender_F | -0,060346 | Yes | No | No |
+| gender_M | 0,060346 | Yes | Yes | No |
+| age_1 | -0,011055 | Yes | No | No |
+| age_2 | -0,008831 | Yes | No | No |
+| age_3 | -0,001830 | Yes | No | No |
+| age_4 | 0,067070 | Yes | Yes | No |
+| age_5 | -0,003317 | Yes | No | No |
+| age_6 | 0,014792 | Yes | Yes | No |
+| age_7 | 0,002904 | Yes | Yes | No |
+| city_A | -0,042465 | Yes | No | No |
+| city_B | -0,019098 | Yes | No | No |
+| city_C | 0,061012 | Yes | Yes | No |
+| cityyears_1 | -0,006605 | Yes | No | No |
+| cityyears_2 | -0,002030 | Yes | No | No |
+| cityyears_3| 0,005358 | Yes | Yes | No |
+| cityyears_4 | 0,002090 | Yes | Yes | No |
+| cityyears_5 | 0,000988 | Yes | Yes | No |
+| occ_0 | -0,010576 | Yes | No | No |
+| occ_1 | -0,019005 | Yes | No | No |
+| occ_2 | -0,013975 | Yes | No | No |
+| occ_3 | -0,003095 | Yes | No | No |
+| occ_4 | -0,003872 | Yes | No | No |
+| occ_5 | 0,002072 | Yes | Yes | No |
+| occ_6 | -0,000290 | Yes | No | No |
+| occ_7 | 0,011176 | Yes | Yes | No |
+| occ_8 | 0,002839 | Yes | Yes | No |
+| occ_9 | -0,13409 | Yes | No | No |
+| occ_10 | -0,009409 | Yes | No | No |
+| occ_11 | -0,001464 | Yes | No | No |
+| occ_12 | 0,025995 | Yes | Yes | No |
+| occ_13 | 0,001007 | Yes | Yes | No |
+| occ_14 | 0,010772 | Yes | Yes | No |
+| occ_15 | 0,015416 | Yes | Yes | No |
+| occ_16 | 0,005713 | Yes | Yes | No |
+| occ_17 | 0,031099 | Yes | Yes | No |
+| occ_18 | -0,002073 | Yes | No | No |
+| occ_19 | -0,013769 | Yes | No | No |
+| occ_20 | -0,021693 | Yes | No | No |
+| prod_cat_1 | 0,506021 | Yes | Yes | Yes |
+| prod_cat_2 | 0,084282 | Yes | Yes | No |
+| prod_cat_3 | 0,032380 | Yes | Yes | No |
+| prod_cat_4 | -0,203982 | Yes | No | Yes |
+| prod_cat_5 | -0,370193 | Yes | No | Yes |
+| prod_cat_6 | 0,257298 | Yes | Yes | Yes |
+| prod_cat_7 | 0,116678 | Yes | Yes | Yes |
+| prod_cat_8 | -0,179587 | Yes | No | Yes |
+| prod_cat_9 | 0,034110 | Yes | Yes | No |
+| prod_cat_10 | 0,201011 | Yes | Yes | Yes |
+| prod_cat_11 | -0,195911 | Yes | No | Yes |
+| prod_cat_12 | -0,133927 | Yes | No | Yes |
+| prod_cat_13 | -0,171660 | Yes | No | Yes |
+| prod_cat_14 | 0,040677 | Yes | Yes | No |
+| prod_cat_15 | 0,118116 | Yes | Yes | Yes |
+| prod_cat_16 | 0,147740 | Yes | Yes | Yes |
+| prod_cat_17 | 0,005855 | Yes | Yes | No |
+| prod_cat_18 | -0,094670 | Yes | No | No |
+| prod_cat_19 | -0,099307 | Yes | No | No |
+| prod_cat_20 | -0,128030 | Yes | No | Yes |
+| Marital_Status | -0,000463 | Yes | No | No |
+
+**Note:** For all these results below, Random Forest's parameters were heavily tuned to reduce its fitting time reasonably, however the model performed worse than expected!
+
+### RESULTS OF ML MODELS (TYPE 1): train.csv (80% Train, 20% Test)
+
+| Model | Fit & Pred Time (sec) | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----------------------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 2,400 | 9045577,92 | 3007,59 | 2280,14 | 0,6407 | 0,6400 | 0,6300 |
+| Lasso | 22,752 | 9050253,92 | 3008,36 | 2281,77 | 0,6405 | 0,6398 | 0,6067 |
+| Ridge | 1,647 | 9052203,54 | 3008,69 | 2282,71 | 0,6404 | 0,6399 | 0,6390 |
+| Polynomial Ridge | 47,812 | 8898842,30 | 2983,09 | 2247,46 | 0,6465 | 0,6400 | 0,6116 |
+| Random Forest | 12,323 | 17154135,84 | 4141,75 | 3135,86 | 0,3186 | 0,3175 | 0,3156 |
+| MLPR | 411,924 | 8864204,60 | 2977,28 | 2235,06 | 0,6478 | N/A | N/A |
+| Gradient Boosting | 56,282 | 9233670,03 | 3038,70 | 2331,49 | 0,6332 | 0,6337 | 0,6103 |
+| XGBoost | 2,827 | 8641033,83 | 2939,56 | 2205,99 | 0,6568 | 0,6615 | 0,6361 |
+
+### RESULTS OF ML MODELS (TYPE 2): train.csv (80% Train, 20% Test)
+
+| Model | Fit & Pred Time (sec) | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----------------------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 0,679 | 10623622,35 | 3295,39 | 2593,13 | 0,5780 | 0,5771 | 0,5764 |
+| Lasso | 0,298 | 10629010,55 | 3260,22 | 2593,91 | 0,5777 | 0,5769 | 0,5763 |
+| Ridge | 0,511 | 10641790,37 | 3262,18 | 2594,14 | 0,5772 | 0,5765 | 0,5758 |
+| Polynomial Ridge | 2,184 | 10563328,62 | 3250,12 | 2579,01 | 0,5804 | 0,5771 | 0,5764 |
+| Random Forest | 5,213 | 18671504,21 | 4321,05 | 3240,04 | 0,2583 | 0,2569 | 0,2559 |
+| MLPR | 257,716 | 10578768,08 | 3252,50 | 2573,54 | 0,5797 | N/A | N/A |
+| Gradient Boosting | 26,332 | 10676026,59 | 3267,41 | 2604,81 | 0,5759 | 0,5756 | 0,5747 |
+| XGBoost | 2,162 | 10499499,76 | 3240,29 | 2566,29 | 0,5829 | 0,5864 | 0,5818 |
+
+### RESULTS OF ML MODELS (TYPE 3): train.csv (80% Train, 20% Test)
+
+| Model | Fit & Pred Time (sec) | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----------------------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 0,256 | 9820782,14 | 3133,81 | 2369,38 | 0,6099 | 0,6094 | 0,5912 |
+| Lasso | 0,342 | 9821523,92 | 3133,93 | 2370,91 | 0,6099 | 0,6093 | 0,5912 |
+| Ridge | 0,248 | 12216471,91 | 3495,21 | 2719,24 | 0,5147 | 0,5146 | 0,5138 |
+| Polynomial Ridge | 0,429 | 9820780,49 | 3133,81 | 2369,39 | 0,6099 | 0,6094 | 0,5912 |
+| Random Forest | 2,934 | 17166166,91 | 4143,21 | 3137,75 | 0,3181 | 0,3171 | 0,3154 |
+| MLPR | 35,05 | 9821469,04 | 3133,92 | 2371,53 | 0,6099 | N/A | N/A |
+| Gradient Boosting | 11,291 | 9924217,05 | 3150,27 | 2397,72 | 0,6058 | 0,6052 | 0,5890 |
+| XGBoost | 1,264 | 9820788,86 | 3133,81 | 2369,38 | 0,6099 | 0,6094 | 0,5912 |
+
+In all types of feature sets, **XGBoost** is the best model across all metrics (except 5-Fold CV Test score in Type 1, where **Ridge** had better score).
 
 ## 06. jhanvi1831 / Software-Engineer-Salary-Prediction
 
