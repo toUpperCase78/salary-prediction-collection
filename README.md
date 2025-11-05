@@ -828,3 +828,20 @@ Here, **XGBoost** had the best MSE, RMSE, MAE error values and R2 sccore. Howeve
 | job_Software Engineer | 6698 | int64 | Yes | |
 | job_Software Engineer Manager | 6698 | int64 | Yes | |
 | job_Web Developer | 6698 | int64 | Yes | |
+
+### RESULTS OF ML MODELS: Salary_Data.csv (80% Train, 20% Test)
+
+| Model | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 460574528 | 21461,00 | 15842,165 | 0,8325 | 0,8521 | 0,5356 |
+| Lasso | 460569653 | 21460,89 | 15848,951 | 0,8235 | 0,8522 | 0,5367 |
+| Ridge | 460480890 | 21458,82 | 15862,628 | 0,8326 | 0,8521 | 0,5386 |
+| Polynomial Lasso | 180817270 | 13446,83 | 8763,386 | 0,9343 | 0,8522 | 0,5367 |
+| Polynomial Ridge | 182694892 | 13516,47 | 8871,754 | 0,9336 | 0,8521 | 0,5386 |
+| Decision Tree | 92359264 | 9610,37 | 3144,987 | 0,9664 | 0,9927 | 0,6234 |
+| Random Forest | 80642811 | 8980,13 | 3142,822 | 0,9707 | 0,9911 | 0,6609 |
+| KNN Reg | 147296049 | 12136,56 | 5004,53 | 0,9464 | 0,9579 | 0,5167 |
+| Gradient Boosting | 248266818 | 15756,48 | 11793,012 | 0,9097 | 0,9254 | 0,6376 |
+| XGBoost | 86806355 | 9316,99 | 4501,225 | 0,9684 | 0,9874 | 0,7000 |
+
+According to this table, **Random Forest** achieved getting the lowest MSE, RMSE, MAE error values, plus obtained the highest R2 Score. About Cross Validation, **Decision Tree** and **XGBoost** reached the highest score in Train and Test, respectively.
