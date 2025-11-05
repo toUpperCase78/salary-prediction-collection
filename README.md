@@ -556,6 +556,46 @@ As seen from the file names above, there are 4 types of features set used in **S
 
 | Column | Correlation | TYPE 1 | TYPE 2 | TYPE 3 | TYPE 4 |
 |--------|-------------|--------|--------|--------|--------|
+| Bachelor | 0,044882 | Yes | Yes | No | No |
+| LessThanBachelor | -0,051838 | Yes | No | No | Yes |
+| Master | -0,015085 | Yes | No | No | Yes |
+| PostGrad | 0,021090 | Yes | Yes | No | No |
+| Australia | 0,021316 | Yes | Yes | No | No |
+| Brazil | -0,208763 | Yes | No | Yes | Yes |
+| Canada | 0,008739 | Yes | Yes | No | No |
+| France | -0,123342 | Yes | No | Yes | Yes |
+| Germany | -0,069303 | Yes | No | No | Yes |
+| India | -0,315436 | Yes | No | Yes | Yes |
+| Israel | 0,086299 | Yes | Yes | No | No |
+| Italy | -0,140597 | Yes | No | Yes | Yes |
+| Netherlands | -0,049947 | Yes | No | No | Yes |
+| Norway | 0,013708 | Yes | Yes | No | No |
+| Poland | -0,136783 | Yes | No | Yes | Yes |
+| Russian Federation | -0,135182 | Yes | No | Yes | Yes |
+| Spain | -0,133264 | Yes | No | Yes | Yes |
+| Sweden | -0,063445 | Yes | No | No | Yes |
+| Switzerland | 0,073046 | Yes | Yes | No | No |
+| Turkey | -0,115985 | Yes | No | Yes | Yes |
+| USA | 0,605722 | Yes | Yes | Yes | No |
+| United Kingdom | -0,005894 | Yes | No | No | Yes |
+| YearsCodePro | 0,352294 | Yes | Yes | Yes | No |
+
+### RESULTS OF ML MODELS (SERIES 1): survey_results_public.csv (80% Train, 20% Test)
+
+| Model | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 1404218337 | 37472,90 | 29892,242 | 0,3114 | 0,3210 | 0,3117 |
+| Lasso | 1404217892 | 37472,90 | 29892,245 | 0,3114 | 0,3210 | 0,3117 |
+| Ridge | 1404218296 | 37472,90 | 29892,241 | 0,3114 | 0,3210 | 0,3117 |
+| Polynomial Lasso | 1163038850 | 34103,36 | 26726,337 | 0,4296 | 0,3210 | 0,3117 |
+| Polynomial Ridge | 1163034950 | 34103,30 | 26726,301 | 0,4296 | 0,3210 | 0,3117 |
+| Decision Tree | 851003207,8 | 29171,96 | 21425,603 | 0,5827 | 0,6554 | 0,5769 |
+| Random Forest | 824823485,7 | 28719,74 | 21157,097 | 0,5955 | 0,6535 | 0,5879 |
+| KNN Reg | 945672800,7 | 30751,79 | 22486,908 | 0,5362 | 0,5722 | 0,5159 |
+| Gradient Boosting | 792979420,3 | 28159,89 | 20828,649 | 0,6111 | 0,6156 | 0,6067 |
+| XGBoost | 803029528,4 | 28337,78 | 20767,661 | 0,6062 | 0,6457 | 0,5986 |
+
+According to these results, **Gradient Boosting** had the lowest MSE, RMSE errors and the highest R2 Score, 5-Fold CV Test score; meanwhile **XGBoost** had the lowest MAE error and **Decision Tree** obtained the highest 5-Fold CV Train score.
 
 ## 07. bonniema / salary-predictor
 
