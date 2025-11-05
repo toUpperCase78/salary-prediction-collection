@@ -678,7 +678,7 @@ Here, **Ridge** model did not surprise us for being the fastest once again. Howe
 * [07_Salary_Prediction_Demo_Model3.ipynb](07_Salary_Prediction_Demo_Model3.ipynb) (Predictions with ML models - Demo 3: Use Pre-trained GioVe Model) (76 KB)
 * [07_Salary_Prediction_Demo_Model4.,pynb](07_Salary_Prediction_Demo_Model4.ipynb) (Predictions with ML models - Demo 4: Deep Learning Models with Word Embeddings) (182 KB)
 * [07_Salary_Prediction_Demo_Model5.ipynb](07_Salary_Prediction_Demo_Model5.ipynb) (Predictions with ML models - Demo 5: Deep Learning with Pre-trained Word2Vec as the Embedding Layer) (152 KB)
-* [07_Salary_Prediction_Demo_Model6.,pynb](07_Salary_Prediction_Demo_Model6.ipynb) (Predictions with ML models - Demo 6: Deep Learning with Midex Input Model with some selected features) (186 KB)
+* [07_Salary_Prediction_Demo_Model6.,pynb](07_Salary_Prediction_Demo_Model6.ipynb) (Predictions with ML models - Demo 6: Deep Learning with Mixed Input Model and with some selected features) (186 KB)
 * [07_Salary_Prediction_Demo.Model7.ipynb](07_Salary_Prediction_Demo_Model7.ipynb) (Predictions with ML models - Demo 7: Use Job Title along with some selected features) (170 KB)
 * [07_salary_final_done.csv](07_salary_final_done.csv) (Finalized salary dataset for predictions) (963 rows) (7517 KB)
 
@@ -746,3 +746,85 @@ Here, **XGBoost** had the best MSE, RMSE, MAE error values and R2 sccore. Howeve
 ## 08. Pranjali1049 / Salary_Prediction
 
 **LINK:** https://github.com/Pranjali1049/Salary_Prediction/tree/main
+
+### FILES
+
+* [08_EDA(1)__Salary_Data.ipynb](08_EDA(1)__Salary_Data.ipynb) (Exploratory Data Analysis on Salary_Data.csv file) (601 KB)
+* [08_Regression__Salary_Data.ipynb](08_Regression__Salary_Data.ipynb) (Predictions with ML Regression models on Salary_Data.csv file) (978 KB)
+* [08_Salary_Data.csv](08_Salary_Data.csv) (Salary dataset for predictions) (6704 rows) (341 KB)
+* [08_XAI_Gradient_Boosting__Salary_Data.ipynb](08_XAI_Gradient_Boosting__Salary_Data.ipynb) (Explaining Gradient Boosting Regression model with SHAP & LIME) (3963 KB)
+* [08_XAI_Linear_Regression__Salary_Data.ipynb](08_XAI_Linear_Regression__Salary_Data.ipynb) (Explaining Linear Regression model SHAP & LIME) (3971 KB)
+* [08_XAI_Random_Forest__Salary_Data.ipynb](08_XAI_Random_Forest__Salary_Data.ipynb) (Explaining Random Forest Regression model SHAP & LIME) (4069 KB)
+
+### FEATURES: Salary_Data.csv (6704 rows)
+
+| Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
+|---------|----------------|-----------|-------------|---------------------|
+| Age | 6702 | float64 | Yes | Dropped null values |
+| Gender | 6702 | string | No | Dropped null values; Created dummy variables |
+| Education Level | 6701 | string | No | Dropped null values; Replaced values into single values; Created dummy variables |
+| Job Title | 6702 | string | No | Dropped null values; Titles with <=25 counts were converted to 'Others'; Created dummy variables |
+| Years of Experience | 6701 | float64 | Yes | Dropped null values |
+| Salary | 6699 | float64 | Yes | The dependent feature for the ML models |
+
+### ADDITIONAL FEATURES: Salary_Data.csv
+
+| Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
+|---------|----------------|-----------|-------------|---------------------|
+| gender_Female | 6698 | int64 | Yes | |
+| gender_Male | 6698 | int64 | Yes | |
+| gender_Other | 6698 | int64 | Yes | |
+| edu_Bachelor's | 6698 | int64 | Yes | |
+| edu_High_School | 6698 | int64 | Yes | |
+| edu_Master's | 6698 | int64 | Yes | |
+| edu_PhD | 6698 | int64 | Yes | |
+| job_Back end Developer | 6698 | int64 | Yes | |
+| job_Content Marketing Manager | 6698 | int64 | Yes | |
+| job_Data Analyst | 6698 | int64 | Yes | |
+| job_Data Scientist | 6698 | int64 | Yes | |
+| job_Digital Marketing Manager | 6698 | int64 | Yes | |
+| job_Director of Data Science | 6698 | int64 | Yes | |
+| job_Director of HR | 6698 | int64 | Yes | |
+| job_Director of Marketing | 6698 | int64 | Yes | |
+| job_Financial Analyst | 6698 | int64 | Yes | |
+| job_Financial Manager | 6698 | int64 | Yes | |
+| job_Front End Developer | 6698 | int64 | Yes | |
+| job_Front end Developer | 6698 | int64 | Yes | |
+| job_Full Stack Engineer | 6698 | int64 | Yes | |
+| job_Human Resources Coordinator | 6698 | int64 | Yes | |
+| job_Human Resources Manager | 6698 | int64 | Yes | |
+| job_Junior HR Coordinator | 6698 | int64 | Yes | |
+| job_Junior HR Generalist | 6698 | int64 | Yes | |
+| job_Junior Marketing Manager | 6698 | int64 | Yes | |
+| job_Junior Sales Associate | 6698 | int64 | Yes | |
+| job_Junior Sales Representative | 6698 | int64 | Yes | |
+| job_Junior Software Developer | 6698 | int64 | Yes | |
+| job_Junior Software Engineer | 6698 | int64 | Yes | |
+| job_Junior Web Developer | 6698 | int64 | Yes | |
+| job_Marketing Analyst | 6698 | int64 | Yes | |
+| job_Marketing Coordinator | 6698 | int64 | Yes | |
+| job_Marketing Director | 6698 | int64 | Yes | |
+| job_Marketing Manager | 6698 | int64 | Yes | |
+| job_Operations Manager | 6698 | int64 | Yes | |
+| job_Others | 6698 | int64 | Yes | |
+| job_Product Designer | 6698 | int64 | Yes | |
+| job_Product Manager | 6698 | int64 | Yes | |
+| job_Receptionist | 6698 | int64 | Yes | |
+| job_Research Director | 6698 | int64 | Yes | |
+| job_Research Scientist | 6698 | int64 | Yes | |
+| job_Sales Associate | 6698 | int64 | Yes | |
+| job_Sales Director | 6698 | int64 | Yes | |
+| job_Sales Executive | 6698 | int64 | Yes | |
+| job_Sales Manager | 6698 | int64 | Yes | |
+| job_Sales Representative | 6698 | int64 | Yes | |
+| job_Senior Data Scientist | 6698 | int64 | Yes | |
+| job_Senior HR Generalist | 6698 | int64 | Yes | |
+| job_Senior Human Resources Manager | 6698 | int64 | Yes | |
+| job_Senior Product Marketing Manager | 6698 | int64 | Yes | |
+| job_Senior Project Manager | 6698 | int64 | Yes | |
+| job_Senior Research Scientist | 6698 | int64 | Yes | |
+| job_Senior Software Engineer | 6698 | int64 | Yes | |
+| job_Software Developer | 6698 | int64 | Yes | |
+| job_Software Engineer | 6698 | int64 | Yes | |
+| job_Software Engineer Manager | 6698 | int64 | Yes | |
+| job_Web Developer | 6698 | int64 | Yes | |
