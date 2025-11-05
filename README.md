@@ -597,6 +597,40 @@ As seen from the file names above, there are 4 types of features set used in **S
 
 According to these results, **Gradient Boosting** had the lowest MSE, RMSE errors and the highest R2 Score, 5-Fold CV Test score; meanwhile **XGBoost** had the lowest MAE error and **Decision Tree** obtained the highest 5-Fold CV Train score.
 
+### RESULTS OF ML MODELS (SERIES 2 / TYPE 1): survey_results_public.csv (80% Train, 20% Test)
+
+| Model | Fit & Pred Time (sec) | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----------------------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 0,018 | 850458517,8 | 29162,62 | 21447,475 | 0,5829 | 0,5868 | 0,5814 |
+| Lasso | 5,000 | 850469377,6 | 29162,81 | 21445,588 | 0,5829 | 0,5868 | 0,5814 |
+| Ridge | 0,017 | 850484294,0 | 29163,06 | 21446,448 | 0,5829 | 0,5868 | 0,5814 |
+| Polynomial Lasso | 26,681 | 795252548,7 | 28200,22 | 20704,872 | 0,6100 | 0,5868 | 0,5814 |
+| Polynomial Ridge | 0,071 | 795373248,7 | 28202,36 | 20707,051 | 0,6099 | 0,5868 | 0,5814 |
+| Decision Tree | 0,038 | 847939597,9 | 29119,4 | 21378,524 | 0,5842 | 0,6554 | 0,5766 |
+| Random Forest | 2,101 | 824547539,4 | 28714,94 | 21136,612 | 0,5956 | 0,6535 | 0,5879 |
+| KNN Reg | 0,227 | 965763825,3 | 31076,74 | 22836,694 | 0,5264 | 0,5735 | 0,5183 |
+| Gradient Boosting | 0,883 | 789289539,1 | 28094,30 | 20808,009 | 0,6129 | 0,6185 | 0,6081 |
+| XGBoost | 0,125 | 806626084,4 | 28401,16 | 20829,217 | 0,6044 | 0,6466 | 0,6005 |
+
+Here, **Ridge** was the fastest in training and prediction time; **Gradient Boosting** achieved having the lowest MSE, RMSE errors and the highest R2 Score and 5-Fold CV Test score. Plus, **Polynomial Lasso** had the lowest MAE error and **Decision Tree** had the highest 5-Fold CV Train score.
+
+### RESULTS OF ML MODELS (SERIES 2 / TYPE 2): survey_results_public.csv (80% Train, 20% Test)
+
+| Model | Fit & Pred Time (sec) | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----------------------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 0,017 | 1001937831 | 31653,4 | 24310,114 | 0,5086 | 0,5154 | 0,5089 |
+| Lasso | 0,014 | 1001943622 | 31653,49 | 24310,405 | 0,5086 | 0,5154 | 0,5089 |
+| Ridge | 0,008 | 1001952633 | 31653,64 | 24310,902 | 0,5086 | 0,5154 | 0,5089 |
+| Polynomial Lasso | 4,528 | 953260486,9 | 30874,92 | 23694,259 | 0,5325 | 0,5154 | 0,5089 |
+| Polynomial Ridge | 0,015 | 953258098,7 | 30874,88 | 23694,380 | 0,5325 | 0,5154 | 0,5089 |
+| Decision Tree | 0,018 | 979156992,7 | 31291,48 | 23937,353 | 0,5198 | 0,5619 | 0,5206 |
+| Random Forest | 0,859 | 965766340,1 | 31076,78 | 23792,004 | 0,5264 | 0,5611 | 0,5248 |
+| KNN Reg | 0,110 | 1133092368 | 33661,44 | 25953,915 | 0,4443 | 0,4606 | 0,4286 |
+| Gradient Boosting | 0,501 | 943469508,3 | 30715,95 | 23585,296 | 0,5373 | 0,5472 | 0,5360 |
+| XGBoost | 0,078 | 970911106,9 | 31159,45 | 23835,80 | 0,5239 | 0,5609 | 0,5256 |
+
+From this table, we can imply that **Ridge** again became the fastest trainer and predictor, **Decision Tree** had the best 5-Fold CV train score. On the other hand, **Gradient Boosting** overall is the best model with regards to MSE, RMSE, MAE errors and R2 Score, 5-Fold CV Test score.
+
 ## 07. bonniema / salary-predictor
 
 **LINK:** https://github.com/bonniema/salary-predictor/tree/master
