@@ -631,9 +631,117 @@ Here, **Ridge** was the fastest in training and prediction time; **Gradient Boos
 
 From this table, we can imply that **Ridge** again became the fastest trainer and predictor, **Decision Tree** had the best 5-Fold CV train score. On the other hand, **Gradient Boosting** overall is the best model with regards to MSE, RMSE, MAE errors and R2 Score, 5-Fold CV Test score.
 
+### RESULTS OF ML MODELS (SERIES 2 / TYPE 3): survey_results_public.csv (80% Train, 20% Test)
+
+| Model | Fit & Pred Time (sec) | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----------------------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 0,017 | 920152060 | 30334,01 | 22561,421 | 0,5487 | 0,5556 | 0,5501 |
+| Lasso | 0,019 | 920144964,6 | 30333,89 | 22561,673 | 0,5487 | 0,5556 | 0,5501 |
+| Ridge | 0,003 | 920146541,7 | 30333,92 | 22562,121 | 0,5487 | 0,5556 | 0,5501 |
+| Polynomial Lasso | 5,901 | 866201289,6 | 29431,30 | 21850,986 | 0,5752 | 0,5556 | 0,5501 |
+| Polynomial Ridge | 0,019 | 866198355,1 | 29431,25 | 21851,132 | 0,5752 | 0,5556 | 0,5501 |
+| Decision Tree | 0,019 | 857361146,9 | 29280,73 | 21784,398 | 0,5795 | 0,5923 | 0,5754 |
+| Random Forest | 0,724 | 856702952,2 | 29269,49 | 21779,651 | 0,5799 | 0,5922 | 0,5762 |
+| KNN Reg | 0,183 | 1012732474 | 31823,46 | 23669,472 | 0,5033 | 0,4991 | 0,4838 |
+| Gradient Boosting | 0,489 | 856871599,6 | 29372,37 | 21723,604 | 0,5798 | 0,5859 | 0,5774 |
+| XGBoost | 0,110 | 856556421,7 | 29266,99 | 21766,693 | 0,5799 | 0,5923 | 0,5761 |
+
+This table shows that **Ridge** was the quickest in training and prediction time; **XGBoost** had the best values for MSE, RMSE, R2 Score (same with Random Forest) and 5-Fold CV Train score (same with Decision Tree). Besides, **Gradient Boosting** had the lowest MAE error and the highest 5-Fold CV Test score.
+
+### RESULTS OF ML MODELS (SERIES 2 / TYPE 4): survey_results_public.csv (80% Train, 20% Test)
+
+| Model | Fit & Pred Time (sec) | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----------------------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 0,015 | 1104951549 | 33240,81 | 25189,559 | 0,4581 | 0,4654 | 0,4584 |
+| Lasso | 0,048 | 1104937741 | 33240,60 | 25191,081 | 0,4581 | 0,4654 | 0,4584 |
+| Ridge | 0,012 | 1104919541 | 33240,33 | 25194,696 | 0,4581 | 0,4654 | 0,4581 |
+| Polynomial Lasso | 0,481 | 1103815184 | 33223,71 | 25173,356 | 0,4587 | 0,4654 | 0,4584 |
+| Polynomial Ridge | 0,030 | 1103867925 | 33224,51 | 25175,295 | 0,4586 | 0,4654 | 0,4584 |
+| Decision Tree | 0,018 | 1103962281 | 33225,93 | 25173,671 | 0,4586 | 0,4668 | 0,4589 |
+| Random Forest | 0,747 | 1103974023 | 33226,10 | 25168,269 | 0,4586 | 0,4668 | 0,4589 |
+| KNN Reg | 0,801 | 1212477696 | 34820,65 | 26757,398 | 0,4054 | 0,3709 | 0,3604 |
+| Gradient Boosting | 0,435 | 1148295142 | 33886,50 | 26159,158 | 0,4369 | 0,4416 | 0,4333 |
+| XGBoost | 0,098 | 1103946787 | 33225,69 | 25173,732 | 0,4586 | 0,4668 | 0,4589 |
+
+Here, **Ridge** model did not surprise us for being the fastest once again. However, **Polynomial Lasso** had the lowest MSE, RMSE errors and the best R2 Score; **Random Forest** obtained the least error for MAE. For 5-Fold CV Train and Test, three models reached the highest score together: **Decision Tree**, **Random Forest** & **XGBoost**.
+
 ## 07. bonniema / salary-predictor
 
 **LINK:** https://github.com/bonniema/salary-predictor/tree/master
+
+### FILES
+
+* [07_EDA(1)__salary_final_done.ipynb](07_EDA(1)__salary_final_done.ipynb) (Exploratory Data Analysis on salary_final_done.csv file) (149 KB)
+* [07_Regression__salary_final_done.ipynb](07_Regression__salary_final_done.ipynb) (Predictions with ML Regression models on salary_final_done.csv file) (640 KB)
+* [07_Salary_Prediction_Demo_Model1.ipynb](07_Salary_Prediction_Demo_Model1.ipynb) (Predictions with ML models - Demo 1: Use Word2Vec Embedding) (130 KB)
+* [07_Salary_Prediction_Demo_Model2.ipynb](07_Salary_Prediction_Demo_Model2.ipynb) (Predictions with ML models - Demo 2: Count Vectorizer + TF-IDF with Grid Search) (183 KB)
+* [07_Salary_Prediction_Demo_Model3.ipynb](07_Salary_Prediction_Demo_Model3.ipynb) (Predictions with ML models - Demo 3: Use Pre-trained GioVe Model) (76 KB)
+* [07_Salary_Prediction_Demo_Model4.,pynb](07_Salary_Prediction_Demo_Model4.ipynb) (Predictions with ML models - Demo 4: Deep Learning Models with Word Embeddings) (182 KB)
+* [07_Salary_Prediction_Demo_Model5.ipynb](07_Salary_Prediction_Demo_Model5.ipynb) (Predictions with ML models - Demo 5: Deep Learning with Pre-trained Word2Vec as the Embedding Layer) (152 KB)
+* [07_Salary_Prediction_Demo_Model6.,pynb](07_Salary_Prediction_Demo_Model6.ipynb) (Predictions with ML models - Demo 6: Deep Learning with Midex Input Model with some selected features) (186 KB)
+* [07_Salary_Prediction_Demo.Model7.ipynb](07_Salary_Prediction_Demo_Model7.ipynb) (Predictions with ML models - Demo 7: Use Job Title along with some selected features) (170 KB)
+* [07_salary_final_done.csv](07_salary_final_done.csv) (Finalized salary dataset for predictions) (963 rows) (7517 KB)
+
+### FEATURES: salary_final_done.csv (963 rows)
+
+| Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
+|---------|----------------|-----------|-------------|---------------------|
+| Title | 963 | string | No | |
+| Company | 963 | string | No | |
+| Link | 963 | string | No | |
+| Review | 963 | string | No | |
+| Salary | 963 | string | No | |
+| Description | 963 | string | No | |
+| Location2 | 958 | string | No | |
+| Rate_by | 963 | string | No | |
+| low | 963 | string | No | |
+| high | 762 | string | No | |
+| min | 963 | float64 | No | |
+| max | 963 | float64 | No | |
+| adjusted_salary | 963 | float64 | No | |
+| adjusted_yearly_salary | 963 | float64 | Yes | The dependent feature for the ML models |
+| Rank | 893 | float64 | No | |
+| City | 893 | string | No | |
+| Cost of Living Index | 893 | float64 | Yes | Filled null values with average |
+| Rent Index | 893 | float64 | Yes | Filled bull values with average |
+| Cost of Living Plus Rent Index | 893 | float64 | Yes | Filled null values with average |
+| Groceries Index | 893 | float64 | Yes | Filled null values with average |
+| Restaurant Price Index | 893 | float64 | Yes | Filled null values with average |
+| Local Purchasing Power Index | 893 | float64 | Yes | Filled null values with average |
+| combined_text | 963 | string | No | |
+| Salary_Bins | 963 | int64 | No | |
+
+### ADDITIONAL FEATURES: salary_final_done.csv
+
+| Feature | Non-Null Count | Data Type | Used for ML | Preprocessing Notes | 
+|---------|----------------|-----------|-------------|---------------------|
+| title_biz_anly | 963 | int64 | Yes | |
+| title_data_sci | 963 | int64 | Yes | |
+| title_mac_learn | 963 | int64 | Yes | |
+| title_data_eng | 963 | int64 | Yes | |
+| title_data_anly | 963 | int64 | Yes | |
+| title_mrkt | 963 | int64 | Yes | |
+| title_soft_eng | 963 | int64 | Yes | |
+| Review_float | 963 | float64 | Yes | Obtained from 'Review' |
+| Desc_length | 963 | int64 | Yes | Obtained from 'Description' |
+| CityNames | 963 | string | Yes | Obtained from 'City'; Created dummy variables |
+
+### RESULTS OF ML MODELS: salary_final_done.csv (80% Train, 20% Test)
+
+| Model | MSE | RMSE | MAE | R2 Score | 5-Fold CV Train | 5-Fold CV Test |
+|-------|-----|------|-----|----------|-----------------|----------------|
+| Linear Reg | 1932704514 | 43962,54 | 32127,696 | 0,2605 | 0,2971 | 0,1234 |
+| Lasso | 1932822315 | 43963,88 | 32129,503 | 0,2605 | 0,2971 | 0,1690 |
+| Ridge | 1937133369 | 44012,88 | 32176,816 | 0,2589 | 0,2967 | 0,1242 |
+| Polynomial Lasso | 2089779365 | 45714,10 | 32384,116 | 0,2005 | 0,2971 | 0,1690 |
+| Polynomial Ridge | 2868626895 | 53559,56 | 35212,337 | -0,0975 | 0,2697 | 0,1242 |
+| Decision Tree | 30447444571 | 55179,20 | 36411,342 | -0,1649 | 1,0000 | -1,1297 |
+| Random Forest | 1780680045 | 42198,10 | 29429,431 | 0,3187 | 0,9120 | 0,1136 |
+| KNN Reg | 2524767002 | 50247,06 | 40045,491 | 0,0340 | 0,3414 | -0,2487 |
+| Gradient Boosting | 1783251616 | 42228,56 | 30015,019 | 0,3177 | 0,6252 | 0,1411 |
+| XGBoost | 1563241844 | 39537,85 | 26822,121 | 0,4019 | 0,9821 | 0,0339 |
+
+Here, **XGBoost** had the best MSE, RMSE, MAE error values and R2 sccore. However, all the models suffered from **overfitting**, especially the **Decision Tree**, **Gradient Boosting** and **XGBoost** models!
 
 ## 08. Pranjali1049 / Salary_Prediction
 
